@@ -1,0 +1,139 @@
+/* জেনারেল সেটিংস */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+}
+
+header {
+    background-color: #8B0000; /* রাজকীয় লাল রঙ */
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* পাশাপাশি ছবি দেখানোর মূল ট্রিক (Flexbox) */
+.product-gallery {
+    display: flex !important;
+    flex-wrap: wrap !important; /* স্ক্রিন ছোট হলে নিচে নামবে, বড় স্ক্রিনে পাশাপাশি থাকবে */
+    justify-content: center; /* মাঝখানে সাজিয়ে রাখবে */
+    gap: 25px;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* প্রতিটি প্রোডাক্টカードের স্টাইল */
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 240px; /* কার্ডের চওড়া সামান্য বাড়িয়ে ২৪০ পিক্সেল করা হলো */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    flex-shrink: 0; /* কার্ড যেন কুঁকড়ে ছোট না হয়ে যায় */
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ইমেজের সাইজ ফিক্সড এবং কেটে যাওয়া বন্ধের মেইন ফিক্স */
+.product-img {
+    width: 100%;
+    height: 220px; /* উচ্চতা বাড়িয়ে ২২০ পিক্সেল করা হলো যাতে প্যাকেট লম্বা দেখায় */
+    object-fit: contain; /* মোস্ট ইম্পর্ট্যান্ট! ছবি একটুও কাটবে না, মশালার পুরো প্যাকেট দেখা যাবে */
+    border-radius: 8px;
+    display: block;
+    background-color: #fafafa; /* ইমেজের ব্যাকগ্রাউন্ডে হালকা গ্রে টোন দেওয়া হলো */
+}
+
+/* প্রোডাক্টের নাম বা হেডিং */
+.product-card h3 {
+    margin: 12px 0 5px 0;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* প্যাকেটের নিচের লেখা ও দামের চার্ট (DIS, HO, RE) পরিষ্কার করার জন্য */
+.product-card p {
+    font-size: 0.95rem; /* লেখার সাইজ একটু বড় করা হলো */
+    color: #333333; /* হালকা কালার বদলে ডার্ক করা হলো যেন পরিষ্কার পড়া যায় */
+    line-height: 1.4; /* লেখার মাঝের গ্যাপ সুন্দর করার জন্য */
+    margin: 4px 0;
+    width: 100%;
+    white-space: pre-line; /* আপনার কোডে লাইন ব্রেক থাকলে তা বজায় রাখবে */
+}
+
+/* মডাল বা পপ-আপ বক্সের স্টাইল (প্রথমে হাইড থাকবে) */
+.modal {
+    display: none; /* ডিফল্টভাবে লুকানো */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* ব্যাকগ্রাউন্ড ঝাপসা কালো */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-product-img {
+    width: 80%; /* মডালের ভেতরেও ছবি বড় ও স্পষ্ট করার জন্য */
+    height: 250px;
+    object-fit: contain; /* মডালের ভেতরেও ছবি কাটবে না */
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-details {
+    text-align: left;
+    margin-top: 15px;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.modal-details p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
