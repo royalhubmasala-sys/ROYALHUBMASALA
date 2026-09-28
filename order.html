@@ -143,23 +143,26 @@ document.getElementById('whatsappOrderForm').addEventListener('submit', function
     // ফর্ম থেকে ডেটা নেওয়া হচ্ছে
     let pName = document.getElementById('productName').value;
     let pSize = document.getElementById('packetSize').value;
+    let quantity=document.getElementbyId('quantity).value;
     let cName = document.getElementById('custName').value;
     let cPhone = document.getElementById('custPhone').value;
     let cAddress = document.getElementById('custAddress').value;
     
     // ⚠️ আপনার আসল WhatsApp নম্বরটি নিচের লাইনে দিন (যেমন: 919876543210)
-    let whatsappNumber = "91 9046627185"; 
+    let whatsappNumber = "919046627185"; 
     
     // মেসেজের ফরম্যাট তৈরি করা হচ্ছে
     let message = *Royal Hub Masala - নতুন অর্ডার*\n\n +
                   📦 *প্রডাক্ট:* ${pName}\n +
                   ⚖️ *সাইজ:* ${pSize}\n +
+                      '*${quantity}\n'+
                   👤 *নাম:* ${cName}\n +
                   📞 *ফোন:* ${cPhone}\n +
                   📍 *ঠিকানা:* ${cAddress};
     
-    // নতুন ট্যাবে WhatsApp ওপেন হবে
-    window.open(https://wa.me{whatsappNumber}?text=${encodeURIComponent(message)}, '_blank');
+    let encodemessage=encodeURIcomponent(message);
+    let whatsappURL='https://whatsapp.com'+whatsappNumber+'&text='+encodedMessage;
+    window.location.href=whatsappURL;
 });
 </script>
 
